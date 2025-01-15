@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <a href="{% url 'todo:logout' %}" class="btn btn-danger">Logout</a>
+    </div>
+
+    <div class="container">
+        <div class="task-form">
+            <h2>Add a New Task</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="title" placeholder="Task Title" required>
+                <textarea name="description" placeholder="Task Description (optional)"></textarea>
+                <input type="date" name="due_date">
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </div>
+
+        <div class="filters">
+            <a href="?filter=all" class="filter-btn {% if filter_type == 'all' %}active{% endif %}">All</a>
+            <a href="?filter=pending" class="filter-btn {% if filter_type == 'pending' %}active{% endif %}">Pending</a>
+            <a href="?filter=completed" class="filter-btn {% if filter_type == 'completed' %}active{% endif %}">Completed</a>
+        </div>
+
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li class="task-item">
+                    <div class="task-content">
+                        <strong>{{ task.title }}</strong>
+                        {% if task.description %}<p>{{ task.description }}</p>{% endif %}
+                        {% if task.due_date %}<small>Due: {{ task.due_date }}</small>{% endif %}
+                    </div>
+                    <div class="task-actions">
+                        {% if task.completed %}
+                            <span class="badge badge-completed">Completed</span>
+                        {% else %}
+                            <a href="{% url 'todo:complete_task' task.id %}" class="btn btn-success">Complete</a>
+                        {% endif %}
+                        <a href="{% url 'todo:edit_task' task.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'todo:delete_task' task.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="task-item">No tasks yet!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

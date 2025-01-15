@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Todo App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="task-form">
+            <h1>Create Account</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            <div class="auth-links">
+                <p>Already have an account? <a href="{% url 'todo:login' %}" class="btn btn-success">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

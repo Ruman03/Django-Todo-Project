@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logged Out - Todo App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="task-form">
+            <h1>Successfully Logged Out</h1>
+            <p>Thank you for using Todo App!</p>
+            <div class="auth-links">
+                <a href="{% url 'todo:login' %}" class="btn btn-primary">Login Again</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

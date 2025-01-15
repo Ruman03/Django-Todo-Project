@@ -16,10 +16,5 @@
   ]
 }
 
-django
-dj-database-url
-psycopg2-binary
-python-dotenv
-whitenoise
 Django>=3.2,<4.0
 whitenoise==6.6.0

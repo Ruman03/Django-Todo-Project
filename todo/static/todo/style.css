@@ -190,12 +190,14 @@ textarea:focus {
     border: 1px solid var(--primary-color);
     font-size: 1.2rem;
     padding: 8px 12px;
-    min-width: auto;
-    width: 40px;
+    min-width: 40px;      /* Fixed width */
+    width: 40px;          /* Fixed width */
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 0 0 auto;       /* Prevent flex growing */
+    max-width: 40px;      /* Ensure fixed width */
 }
 
 .filters {
@@ -320,6 +322,104 @@ textarea:focus {
     .filter-btn {
         padding: 6px 12px;
         font-size: 0.9rem;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .header-right {
+        width: auto;         /* Changed from 100% */
+        justify-content: center;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .task-list {
+        grid-template-columns: 1fr;
+    }
+
+    .task-form {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .filters {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .task-actions {
+        gap: 0.35rem;
+        padding: 0.75rem 0.25rem 0;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        min-width: 60px;
+        font-size: 0.85rem;
+    }
+
+    .btn-theme {
+        width: 36px;        /* Slightly smaller on mobile */
+        height: 36px;
+        min-width: 36px;
+        max-width: 36px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 { 
+        font-size: 1.25rem; 
+    }
+    
+    h2 { 
+        font-size: 1.1rem; 
+    }
+
+    .task-item {
+        padding: 1rem;
+    }
+
+    .task-title {
+        font-size: 1rem;
+    }
+
+    .task-description {
+        font-size: 0.9rem;
+    }
+
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        flex: 1;
+        text-align: center;
+    }
+
+    .filters {
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .task-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        flex: 1;
+        min-width: 0;
+        max-width: none;
     }
 }
 

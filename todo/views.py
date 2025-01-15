@@ -43,7 +43,7 @@ def index(request):
             description=description,
             due_date=due_date if due_date else None
         )
-        return redirect('index')
+        return redirect('todo:index')  # Update this line to include namespace
 
     filter_type = request.GET.get('filter', 'all')
     tasks = Task.objects.filter(user=request.user)

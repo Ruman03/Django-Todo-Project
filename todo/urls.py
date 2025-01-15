@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/', views.CustomLoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(
         template_name='todo/logout.html',
+        next_page='todo:login'
     ), name='logout'),
     path('register/', views.register, name='register'),
     path('complete/<int:task_id>/', views.complete_task, name='complete_task'),

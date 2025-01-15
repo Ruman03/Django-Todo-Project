@@ -8,11 +8,12 @@
 <body>
     <div class="container">
         <div class="task-form">
-            <h1>Successfully Logged Out</h1>
-            <p>Thank you for using Todo App!</p>
-            <div class="auth-links">
-                <a href="{% url 'todo:login' %}" class="btn btn-primary">Login Again</a>
-            </div>
+            <h1>Are you sure you want to logout?</h1>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, Logout</button>
+                <a href="{% url 'todo:index' %}" class="btn btn-primary">No, Go Back</a>
+            </form>
         </div>
     </div>
 </body>

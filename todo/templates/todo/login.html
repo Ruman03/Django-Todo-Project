@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Todo App</title>
+    <title>Login - To Do App</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'todo/style.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="task-form">
-            <h1>Welcome to Todo App</h1>
+            <h1>Welcome to To Do App</h1>
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}

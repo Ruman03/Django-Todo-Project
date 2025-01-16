@@ -6,4 +6,3 @@ venv/
 .vscode/
 *.log
 staticfiles/
-.vercel

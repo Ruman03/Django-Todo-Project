@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Register - Todo App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'todo/style.css' %}">
 </head>
@@ -9,6 +11,13 @@
     <div class="container">
         <div class="task-form">
             <h1>Create Account</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}

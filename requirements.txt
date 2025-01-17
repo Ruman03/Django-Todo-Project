@@ -1,0 +1,7 @@
+Django>=4.2.0
+python-dotenv>=1.0.0
+django-crispy-forms>=2.0
+django-widget-tweaks>=1.4.12
+Pillow>=9.5.0  # For image handling if you plan to add task attachments
+whitenoise>=6.4.0  # For serving static files in production
+gunicorn>=20.1.0  # For production deployment

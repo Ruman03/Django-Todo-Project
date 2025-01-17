@@ -13,27 +13,27 @@ A feature-rich Todo application built with Django that includes user authenticat
 
 ## Installation
 
-1. Clone the repository in bash
-
-git clone https://github.com/yourusername/Django-Todo-Project.git
-cd Django-Todo-Project
-
-2. Create a virtual environment
+1. Create a virtual environment
 
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
-3. Install dependencies
+2. Install dependencies
 
 pip install -r requirements.txt
 
-4. Run migrations
+3. Run migrations
 
 python manage.py migrate
 
-5. Start the development server
+4. Start the development server
 
 python manage.py runserver
+
+## Default Account
+
+Username: admin
+Password: autometa
 
 ## Usage
 
@@ -51,6 +51,6 @@ python manage.py runserver
 - JavaScript
 - SQLite
 
-## License
+## Credits
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+I am glad to complete this project and hope that it will meet all the requirements ~Raman Asif
